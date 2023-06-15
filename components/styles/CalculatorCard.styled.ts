@@ -16,12 +16,12 @@ export const StyledCard = styled.div`
     button {
       background-color: rgb(134 76 255);
       border: none;
-      padding: 1em 0;
+      padding: 1.4em 0;
       color: white;
       cursor: pointer;
       border-radius: 50%;
       font-weight: bold;
-      width: 4em;
+      width: 5em;
 
       &:hover {
         background-color: rgb(89 41 171);
@@ -29,7 +29,7 @@ export const StyledCard = styled.div`
 
       svg {
         fill: white;
-        font-size: 1.5em;
+        font-size: 1.8em;
       }
     }
   }
