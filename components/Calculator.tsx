@@ -1,5 +1,6 @@
 import { FormEvent, useState } from "react";
 import {
+  InputFields,
   StyledCard,
   StyledDate,
   StyledInput,
@@ -45,27 +46,29 @@ function Calculator() {
   return (
     <StyledCard>
       <form onSubmit={handleAgeCalculation}>
-        <StyledInput>
-          <label>Day</label>
-          <input
-            type="number"
-            onChange={(e) => setDayInput(parseInt(e.target.value))}
-          />
-        </StyledInput>
-        <StyledInput>
-          <label>Month</label>
-          <input
-            type="number"
-            onChange={(e) => setMonthInput(parseInt(e.target.value))}
-          />
-        </StyledInput>
-        <StyledInput>
-          <label>Year</label>
-          <input
-            type="number"
-            onChange={(e) => setYearInput(parseInt(e.target.value))}
-          />
-        </StyledInput>
+        <InputFields>
+          <StyledInput>
+            <label>Day</label>
+            <input
+              type="number"
+              onChange={(e) => setDayInput(parseInt(e.target.value))}
+            />
+          </StyledInput>
+          <StyledInput>
+            <label>Month</label>
+            <input
+              type="number"
+              onChange={(e) => setMonthInput(parseInt(e.target.value))}
+            />
+          </StyledInput>
+          <StyledInput>
+            <label>Year</label>
+            <input
+              type="number"
+              onChange={(e) => setYearInput(parseInt(e.target.value))}
+            />
+          </StyledInput>
+        </InputFields>
         <button type="submit">Calculate</button>
       </form>
 

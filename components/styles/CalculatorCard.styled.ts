@@ -8,8 +8,23 @@ export const StyledCard = styled.div`
 
   form {
     display: flex;
+    flex-direction: column;
     gap: 1em;
     margin-bottom: 2em;
+
+    button {
+      background-color: rgb(134 76 255);
+      border: none;
+      padding: 1em 0;
+      color: white;
+      cursor: pointer;
+      border-radius: 0.5em;
+      font-weight: bold;
+
+      &:hover {
+        background-color: rgb(89 41 171);
+      }
+    }
   }
 `;
 
@@ -40,4 +55,9 @@ export const StyledDate = styled.div`
       color: rgb(134 76 255);
     }
   }
+`;
+
+export const InputFields = styled.div`
+  display: flex;
+  gap: 1em;
 `;
