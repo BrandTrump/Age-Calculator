@@ -49,10 +49,23 @@ export const StyledInput = styled.div`
 
   input {
     max-width: 4em;
-    padding: 0.5em;
+    padding: 0.8em;
     border-radius: 0.3em;
-    border-width: 0.05em;
-    border-color: rgb(130 130 130);
+    border: 0.1em solid lightgray;
+    font-weight: 800;
+  }
+
+  input[type="number"] {
+    /* Remove default arrows */
+    -moz-appearance: textfield; /* Firefox */
+    appearance: textfield; /* Other modern browsers */
+  }
+
+  input[type="number"]::-webkit-inner-spin-button,
+  input[type="number"]::-webkit-outer-spin-button {
+    /* Remove default arrows in WebKit browsers */
+    -webkit-appearance: none;
+    margin: 0; /* Optional */
   }
 `;
 
