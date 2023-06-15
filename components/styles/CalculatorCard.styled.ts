@@ -9,6 +9,7 @@ export const StyledCard = styled.div`
   form {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 2em;
     margin-bottom: 2em;
 
@@ -18,11 +19,17 @@ export const StyledCard = styled.div`
       padding: 1em 0;
       color: white;
       cursor: pointer;
-      border-radius: 0.5em;
+      border-radius: 50%;
       font-weight: bold;
+      width: 4em;
 
       &:hover {
         background-color: rgb(89 41 171);
+      }
+
+      svg {
+        fill: white;
+        font-size: 1.5em;
       }
     }
   }
