@@ -51,6 +51,7 @@ function Calculator() {
             <label>Day</label>
             <input
               type="number"
+              placeholder="DD"
               onChange={(e) => setDayInput(parseInt(e.target.value))}
             />
           </StyledInput>
@@ -58,6 +59,7 @@ function Calculator() {
             <label>Month</label>
             <input
               type="number"
+              placeholder="MM"
               onChange={(e) => setMonthInput(parseInt(e.target.value))}
             />
           </StyledInput>
@@ -65,6 +67,7 @@ function Calculator() {
             <label>Year</label>
             <input
               type="number"
+              placeholder="YYYY"
               onChange={(e) => setYearInput(parseInt(e.target.value))}
             />
           </StyledInput>
