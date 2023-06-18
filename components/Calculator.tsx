@@ -72,7 +72,10 @@ function Calculator() {
             />
           </StyledInput>
         </InputFields>
-        <button type="submit">
+        <button
+          disabled={!dayInput || !monthInput || !yearInput ? true : false}
+          type="submit"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
