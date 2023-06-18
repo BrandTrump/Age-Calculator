@@ -23,6 +23,11 @@ export const StyledCard = styled.div`
       font-weight: bold;
       width: 5em;
 
+      &:disabled {
+        background-color: rgb(89 41 171);
+        cursor: not-allowed;
+      }
+
       &:hover {
         background-color: rgb(89 41 171);
       }
