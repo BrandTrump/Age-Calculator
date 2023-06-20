@@ -1,4 +1,4 @@
-import { FormEvent, useState } from "react";
+import { ChangeEvent, FormEvent, useState } from "react";
 import {
   InputFields,
   StyledCard,
@@ -7,9 +7,19 @@ import {
 } from "./styles/CalculatorCard.styled";
 
 function Calculator() {
-  const [dayInput, setDayInput] = useState<number>(0);
-  const [monthInput, setMonthInput] = useState<number>(0);
-  const [yearInput, setYearInput] = useState<number>(0);
+  const [inputs, setInputs] = useState({
+    day: 0,
+    month: 0,
+    year: 0,
+  });
+
+  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
+    setInputs((prevState) => ({
+      ...prevState,
+      [field]: parseInt(e.target.value),
+    }));
+  };
+
   const [day, setDay] = useState<number>(0);
   const [month, setMonth] = useState<number>(0);
   const [year, setYear] = useState<number>(0);
@@ -17,10 +27,12 @@ function Calculator() {
   const handleAgeCalculation = (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
+    const { day, month, year } = inputs;
+
     const currentDate = new Date();
-    let ageYears = currentDate.getFullYear() - yearInput;
-    let ageMonths = currentDate.getMonth() - monthInput;
-    let ageDays = currentDate.getDate() - dayInput;
+    let ageYears = currentDate.getFullYear() - year;
+    let ageMonths = currentDate.getMonth() - month;
+    let ageDays = currentDate.getDate() - day;
 
     // Adjust the age if the current month is earlier than the birth month
     if (ageMonths < 0 || (ageMonths === 0 && ageDays < 0)) {
@@ -52,7 +64,7 @@ function Calculator() {
             <input
               type="number"
               placeholder="DD"
-              onChange={(e) => setDayInput(parseInt(e.target.value))}
+              onChange={(e) => handleInputChange(e, "day")}
             />
           </StyledInput>
           <StyledInput>
@@ -60,7 +72,7 @@ function Calculator() {
             <input
               type="number"
               placeholder="MM"
-              onChange={(e) => setMonthInput(parseInt(e.target.value))}
+              onChange={(e) => handleInputChange(e, "month")}
             />
           </StyledInput>
           <StyledInput>
@@ -68,14 +80,11 @@ function Calculator() {
             <input
               type="number"
               placeholder="YYYY"
-              onChange={(e) => setYearInput(parseInt(e.target.value))}
+              onChange={(e) => handleInputChange(e, "year")}
             />
           </StyledInput>
         </InputFields>
-        <button
-          disabled={!dayInput || !monthInput || !yearInput ? true : false}
-          type="submit"
-        >
+        <button disabled={!inputs ? true : false} type="submit">
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
