@@ -13,7 +13,10 @@ function Calculator() {
     year: 0,
   });
 
-  const handleInputChange = (e: ChangeEvent<HTMLInputElement>, field: any) => {
+  const handleInputChange = (
+    e: ChangeEvent<HTMLInputElement>,
+    field: string
+  ) => {
     setInputs((prevState) => ({
       ...prevState,
       [field]: parseInt(e.target.value),
@@ -84,7 +87,10 @@ function Calculator() {
             />
           </StyledInput>
         </InputFields>
-        <button disabled={!inputs ? true : false} type="submit">
+        <button
+          disabled={!inputs.day || !inputs.month || !inputs.year ? true : false}
+          type="submit"
+        >
           <svg
             xmlns="http://www.w3.org/2000/svg"
             height="1em"
